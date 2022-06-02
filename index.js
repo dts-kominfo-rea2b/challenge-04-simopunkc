@@ -7,8 +7,23 @@ const dates = [
   "2020-02-03 UTC+7", // 1580662800 (epoch time, dalam detik)
 ];
 
+const sortDate = (arr) => {
+  return arr.sort();
+}
+
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (arr, pos = -1) => {
+  let sort = (pos >= 0 && pos < arr.length) ? false : true;
+  let temp = [];
+  arr.map((v) => {
+    temp.push((Date.parse(v) / 1000).toString());
+  });
+  if (sort) {
+    return sortDate(temp).join("-");
+  } else {
+    return temp[pos]
+  }
+}
 
 // ! JANGAN DIMODIFIKASI
 (() => {
